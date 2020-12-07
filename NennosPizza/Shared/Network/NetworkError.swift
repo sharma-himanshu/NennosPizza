@@ -12,3 +12,4 @@ struct NetworkError {
     let statusCode: Int
     let errorDescription: String
 }
+

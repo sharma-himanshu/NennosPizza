@@ -11,6 +11,7 @@ import UIKit
 let CART_PLIST_URL = "cart.plist"
 let INGREDIENTS_LIST_URL = "ingredients.plist"
 
+let CHECKOUT_URL = "http://httpbin.org/post"
 let INGREDIENTS_URL = "https://doclerlabs.github.io/mobile-native-challenge/ingredients.json"
 let DRINKS_URL = "https://doclerlabs.github.io/mobile-native-challenge/drinks.json"
 let PIZZAS_URL = "https://doclerlabs.github.io/mobile-native-challenge/pizzas.json"

@@ -125,6 +125,10 @@ extension CartViewController: EditCellDelegate {
 }
 
 extension CartViewController: CartViewing {
+    func showError(error: NetworkError) {
+        self.showErrorAlert(error: error)
+    }
+    
     func cartLoadSuccessful(cartItems: [CartItemViewModel], withTotal: String) {
         self.dataSource = cartItems
         DispatchQueue.main.async { [unowned self] in

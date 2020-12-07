@@ -23,8 +23,9 @@ protocol CartItemViewModel {
 }
 
 protocol CartViewing: class {
-    func cartLoadSuccessful(cartItems:[CartItemViewModel], withTotal: String)
+    func cartLoadSuccessful(cartItems: [CartItemViewModel], withTotal: String)
     func cartLoadFailure()
+    func showError(error: NetworkError)
 }
 
 protocol CartInteracting: class {

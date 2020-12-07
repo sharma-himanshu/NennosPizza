@@ -22,6 +22,10 @@ class LocalDataManager
     
     private init() { }
 
+    func itemCount() -> Int {
+        return ((self.cart?.pizzas.count ?? 0) + (self.cart?.drinks.count ?? 0))
+    }
+    
     func saveCart() {
         let encoder = PropertyListEncoder()
         if let data = try? encoder.encode(cart) {
@@ -33,6 +37,11 @@ class LocalDataManager
                 FileManager.default.createFile(atPath: plistURL.path, contents: data, attributes: nil)
             }
         }
+    }
+    
+    func resetCart() {
+        self.cart = nil
+        self.initializeCart()
     }
     
     func getCart() {

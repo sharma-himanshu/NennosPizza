@@ -26,6 +26,7 @@
 		194633B4257DFAB90005732A /* DrinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194633B3257DFAB90005732A /* DrinkModel.swift */; };
 		194633B8257DFAC80005732A /* DrinksListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194633B7257DFAC80005732A /* DrinksListProtocols.swift */; };
 		194633D2257DFDF30005732A /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194633D1257DFDF30005732A /* CartModel.swift */; };
+		194633D7257E1E720005732A /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194633D6257E1E720005732A /* OrderConfirmationViewController.swift */; };
 		1967E56A256C311D00FA9BC6 /* bg_wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 1967E569256C311D00FA9BC6 /* bg_wood.png */; };
 		1967E56E256C4D7100FA9BC6 /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1967E56D256C4D7100FA9BC6 /* GenericViewController.swift */; };
 		196B697C25739CA200A3940C /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196B697B25739CA200A3940C /* LocalDataManager.swift */; };
@@ -83,6 +84,7 @@
 		194633B3257DFAB90005732A /* DrinkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkModel.swift; sourceTree = "<group>"; };
 		194633B7257DFAC80005732A /* DrinksListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksListProtocols.swift; sourceTree = "<group>"; };
 		194633D1257DFDF30005732A /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
+		194633D6257E1E720005732A /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		1967E569256C311D00FA9BC6 /* bg_wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_wood.png; sourceTree = "<group>"; };
 		1967E56D256C4D7100FA9BC6 /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
 		196B697B25739CA200A3940C /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
@@ -250,6 +252,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		194633D5257E1E4E0005732A /* Order Confirmation */ = {
+			isa = PBXGroup;
+			children = (
+				194633D6257E1E720005732A /* OrderConfirmationViewController.swift */,
+			);
+			path = "Order Confirmation";
+			sourceTree = "<group>";
+		};
 		196B697A25739C7D00A3940C /* LocalDataManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,9 +391,10 @@
 		19759DF52566E9DA007C4853 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				19759DBB2566E483007C4853 /* PizzaList */,
 				19759DBF2566E52D007C4853 /* DrinksList */,
 				19759DBC2566E4AC007C4853 /* Checkout */,
-				19759DBB2566E483007C4853 /* PizzaList */,
+				194633D5257E1E4E0005732A /* Order Confirmation */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -589,6 +600,7 @@
 				1946337A2577E3520005732A /* CartRouter.swift in Sources */,
 				19759E222568749D007C4853 /* GetPizzasResponseModel.swift in Sources */,
 				197A173D25651C43003C402A /* NetworkManager.swift in Sources */,
+				194633D7257E1E720005732A /* OrderConfirmationViewController.swift in Sources */,
 				194633882577E3870005732A /* CartViewController.swift in Sources */,
 				196B697C25739CA200A3940C /* LocalDataManager.swift in Sources */,
 				194633802577E3630005732A /* CartPresenter.swift in Sources */,

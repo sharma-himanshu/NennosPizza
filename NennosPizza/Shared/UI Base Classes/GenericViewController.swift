@@ -30,4 +30,17 @@ class GenericViewController: UIViewController {
             return view
         }
     }
+    
+    func showErrorAlert(error: NetworkError)
+    {
+        SwiftMessages.show {
+            let view = MessageView.viewFromNib(layout: .cardView)
+            view.configureTheme(.error)
+            view.configureContent(title:"Error", body:"\(error.errorDescription)")
+            view.button?.isHidden = true
+            view.iconLabel?.isHidden = true
+            view.iconImageView?.isHidden = true
+            return view
+        }
+    }
 }

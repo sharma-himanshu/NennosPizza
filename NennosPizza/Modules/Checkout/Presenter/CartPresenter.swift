@@ -29,8 +29,8 @@ class CartPresenter: CartPresenting {
         }
     }
     
-    func checkoutTapped() {
-        self.router.navigateToOrderConfirmation()
+    func checkoutTapped() {        
+        self.interactor.checkoutButtonTapped()
     }
     
     func drinksNavigationItemTapped() {
@@ -40,11 +40,11 @@ class CartPresenter: CartPresenting {
 
 extension CartPresenter: CartInteractorDelegate {
     func checkoutSuccess() {
-        
+        self.router.navigateToOrderConfirmation()
     }
     
     func checkoutError(error: NetworkError) {
-        //view?.showError(error:error)
+        view?.showError(error: error)
     }
     
     func didLoadCart(items: [CartItemViewModel], withTotal: String) {

@@ -6,7 +6,7 @@
 //  Copyright © 2020 Docler. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class CartRouter: CartRouting {
     weak var viewController: GenericViewController?
@@ -34,6 +34,13 @@ class CartRouter: CartRouting {
     
     func navigateToOrderConfirmation()
     {
-        
+        DispatchQueue.main.async {
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController:OrderConfirmationViewController =
+                storyboard.instantiateViewController(withIdentifier: "orderConfirmVC") as! OrderConfirmationViewController
+            
+            self.viewController?.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }

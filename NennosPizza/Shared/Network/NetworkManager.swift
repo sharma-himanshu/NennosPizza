@@ -93,5 +93,38 @@ class NetworkManager
         task.resume()
     }
     
+    func checkout(_ parameters:[String:Any], completion: @escaping(_ error: NetworkError?) -> Void) {
+        let url = URL(string: CHECKOUT_URL)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject:parameters, options: .prettyPrinted)
+        } catch let error {
+            print(error.localizedDescription)
+            completion(NetworkError(statusCode:405, errorDescription:error.localizedDescription))
+        }
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                if let response = response as? HTTPURLResponse {
+                    completion(NetworkError(statusCode:response.statusCode, errorDescription:error.localizedDescription))
+                }
+            } else {
+                if let response = response as? HTTPURLResponse {
+                    print("statusCode: \(response.statusCode)")
+                }
+                if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                    print("data: \(dataString)")
+                }
+                completion(nil)
+            }
+        }
+        task.resume()
+    }
+    
 }
 

@@ -17,6 +17,11 @@ class CartInteractor: CartInteracting {
         }
     }
     
+    func resetCart()
+    {
+        LocalDataManager.shared.resetCart()
+    }
+    
     func deleteItemFromCart(item: CartItemViewModel) {
         if item is PizzaModel {
             if let unwrappedPizza = item as? PizzaModel {
@@ -32,6 +37,37 @@ class CartInteractor: CartInteracting {
     }
     
     func checkoutButtonTapped() {
-        
+        // Validation check to see if Cart isn't empty
+        let totalItems = LocalDataManager.shared.itemCount()
+        if (totalItems == 0)  {
+            self.delegate?.checkoutError(error: NetworkError(statusCode: 406, errorDescription: "Your cart is empty, please add an item to checkout!"))
+        }
+        else {
+            var postParams: [String:Any] = [:]
+            var drinks:[NSNumber] = []
+            drinks = LocalDataManager.shared.cart?.drinks.map({ NSNumber(value: $0.id)}) ?? []
+            postParams["drinks"] = drinks
+            var pizzaParam:[[String:Any]] = []
+            if let pizzas = LocalDataManager.shared.cart?.pizzas {
+                for pizza in pizzas {
+                    let dict:[String:Any] = ["name":pizza.name,
+                                             "ingredients":pizza.ingredients]
+                    pizzaParam.append(dict)
+                }
+            }
+            postParams["pizzas"] = pizzaParam
+            
+            NetworkManager.shared.checkout(postParams) { (error) in
+                if(error == nil) {
+                    self.delegate?.checkoutSuccess()
+                    self.resetCart()
+                }
+                else {
+                    if let unwrappedError = error {
+                        self.delegate?.checkoutError(error: unwrappedError)
+                    }
+                }
+            }
+        }
     }
 }
