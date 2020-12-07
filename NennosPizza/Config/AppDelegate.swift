@@ -16,6 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = UIColor.init(red: 0.88, green: 0.30, blue: 0.2, alpha: 1.0)
+        navigationBarAppearace.titleTextAttributes = [.foregroundColor : NAVBAR_TEXT_COLOR]
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        
+        let navigationController = UINavigationController(rootViewController: PizzaListRouter.makeModule())
+        navigationController.navigationBar.isTranslucent = true
+        window?.rootViewController = navigationController
+        
         return true
     }
 
